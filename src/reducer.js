@@ -2,6 +2,12 @@ import uuidv4 from 'uuid/v4'
 
 export default function todosReducer (state, action) {
     switch (action.type) {
+        case 'GET_TODOS' : {
+            return {
+                ...state,
+                todos: action.payload
+            }
+        }
         case 'TOGGLE_TODO' :
             const toggledTodos = state.todos.map(t => t.id === action.payload.id
                 ? { ...action.payload, complete: !action.payload.complete }
@@ -54,7 +60,7 @@ export default function todosReducer (state, action) {
             if (state.todos.findIndex(t => t.text === action.payload) > -1) {
                 return state
             }
-            
+
             const updatedTodo = {
                 ...state.currentTodo,
                 text: action.payload
