@@ -10,7 +10,7 @@ export default function todosReducer (state, action) {
         }
         case 'TOGGLE_TODO' :
             const toggledTodos = state.todos.map(t => t.id === action.payload.id
-                ? { ...action.payload, complete: !action.payload.complete }
+                ? action.payload
                 : t)
 
             return {
