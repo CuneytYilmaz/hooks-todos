@@ -47,17 +47,16 @@ export default function todosReducer (state, action) {
                 todos: addedTodos
             }
         case 'UPDATE_TODO' : {
-            if (!action.payload) {
-                return state
-            }
+            // if (!action.payload) {
+            //     return state
+            // }
 
-            if (state.todos.findIndex(t => t.text === action.payload) > -1) {
-                return state
-            }
+            // if (state.todos.findIndex(t => t.text === action.payload) > -1) {
+            //     return state
+            // }
 
             const updatedTodo = {
-                ...state.currentTodo,
-                text: action.payload
+                ...action.payload
             }
             const updatedTodoIndex = state.todos.findIndex(t => t.id === state.currentTodo.id)
 
