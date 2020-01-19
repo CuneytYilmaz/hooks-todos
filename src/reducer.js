@@ -33,21 +33,15 @@ export default function todosReducer (state, action) {
                 currentTodo: isRemovedTodo
             }
         case 'ADD_TODO' :
-            if (!action.payload) {
-                return state
-            }
+            // if (!action.payload) {
+            //     return state
+            // }
 
-            if (state.todos.findIndex(t => t.text === action.payload) > -1) {
-                return state
-            }
+            // if (state.todos.findIndex(t => t.text === action.payload) > -1) {
+            //     return state
+            // }
 
-            const newTodo = {
-                id: uuidv4(),
-                text: action.payload,
-                complete: false
-            }
-
-            const addedTodos = [...state.todos, newTodo]
+            const addedTodos = [...state.todos, action.payload]
             return {
                 ...state,
                 todos: addedTodos
